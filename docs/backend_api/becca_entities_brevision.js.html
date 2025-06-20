@@ -28,13 +28,13 @@
         <article>
             <pre class="prettyprint source linenums"><code>"use strict";
 
-const protectedSessionService = require('../../services/protected_session');
-const utils = require('../../services/utils');
-const dateUtils = require('../../services/date_utils');
-const becca = require('../becca');
-const AbstractBeccaEntity = require("./abstract_becca_entity");
-const sql = require("../../services/sql");
-const BAttachment = require("./battachment");
+const protectedSessionService = require('../../services/protected_session.js');
+const utils = require('../../services/utils.js');
+const dateUtils = require('../../services/date_utils.js');
+const becca = require('../becca.js');
+const AbstractBeccaEntity = require('./abstract_becca_entity.js');
+const sql = require('../../services/sql.js');
+const BAttachment = require('./battachment.js');
 
 /**
  * Revision represents a snapshot of note's title and content at some point in the past.
@@ -187,6 +187,13 @@ class BRevision extends AbstractBeccaEntity {
     getAttachmentByTitle(title) {
         // cannot use SQL to filter by title since it can be encrypted
         return this.getAttachments().filter(attachment => attachment.title === title)[0];
+    }
+
+    /**
+     * Revisions are not soft-deletable, they are immediately hard-deleted (erased).
+     */
+    eraseRevision() {
+        require("../../services/erase.js").eraseRevisions([this.revisionId]);
     }
 
     beforeSaving() {

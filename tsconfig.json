@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "lib": ["dom", "es2018", "esnext.asynciterable"],
+    "allowJs": true,
+    "checkJs": false,
+    "jsx": "react",
+    "sourceMap": true,
+    "outDir": "./dist_ts",
+    "rootDir": "./src",
+    "strict": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["node_modules/*", "src/types/*"]
+    },
+    "typeRoots": [
+        "node_modules/@types",
+        "src/types"
+    ]
+  },
+  "include": [
+    "src/**/*.js",
+    "src/**/*.jsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "electron.js",
+    ".eslintrc.js",
+    ".prettierrc.js",
+    "webpack.config.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "coverage",
+    "src/public/app-dist",
+    "src/public/libs",
+    "libraries",
+    "docs",
+    "bin/better-sqlite3"
+  ]
+}
