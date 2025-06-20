@@ -1,0 +1,10 @@
+node_modules/
+dist/
+build/
+coverage/
+src/public/app-dist/
+src/public/libs/
+libraries/
+docs/
+bin/better-sqlite3/
+*.md
